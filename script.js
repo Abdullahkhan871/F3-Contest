@@ -7,8 +7,10 @@ signUp.addEventListener("submit", handleSubmit);
 
 function handleSubmit(e) {
   e.preventDefault();
+  let toggle = false;
   let token = "";
   let userDetails = {};
+const char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   input.forEach((item) => {
     if (!item.value) {
@@ -16,6 +18,7 @@ function handleSubmit(e) {
       errorBox.append(errerMessage);
       return;
     }
+    toggle = true;
     userDetails[item.name] = item.value;
   });
 
@@ -24,6 +27,15 @@ function handleSubmit(e) {
     errorBox.append(errerMessage);
     return;
   }
+
+  for (let i = 0; i < 16; i++) {
+    token += char[Math.floor(Math.random() * char.length)];
+  }
+  userDetails['token'] = token;
+
+  if(toggle){
+    localStorage.setItem(userDetails.email, JSON.stringify(userDetails));
+  }
 }
 
 input.forEach((item) => {
@@ -31,6 +43,8 @@ input.forEach((item) => {
     errerMessage.innerText = "";
   });
 });
+
+
 
 // function handleSubmit(e) {
 //   e.preventDefault();
