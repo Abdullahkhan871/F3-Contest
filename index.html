@@ -6,6 +6,42 @@
     <title>Document</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <div class="logo-box">
+          <h3>Header</h3>
+        </div>
+        <ul>
+          <li><a href="#">Signup</a></li>
+          <li><a href="/profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>Signup</h1>
+    <form id="signup-form">
+      <input
+        type="text"
+        name="fullName"
+        placeholder="Full Name"
+        id="fullName"
+      />
+      <input type="email" name="email" placeholder="Email" id="email" />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        id="password"
+      />
+      <input
+        type="password"
+        name="cPassword"
+        placeholder="Confirm Password"
+        id="cPassword"
+      />
+      <div class="error"></div>
+      <button type="submit">Signup</button>
+    </form>
+
     <script src="./script.js"></script>
   </body>
 </html>
