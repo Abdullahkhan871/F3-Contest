@@ -19,23 +19,24 @@ if(window.location.pathname == "/index.html"){
   signUp.addEventListener("submit", handleSubmit);
   function handleSubmit(e) {
     e.preventDefault();
-    let toggle = false;
+    let toggle = 0;
     let token = "";
     let userDetails = {};
     const char =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     input.forEach((item) => {
-      if (!item.value) {
+      if (item.value) {
+                toggle++;
+                userDetails[item.name] = item.value;
+      }
+        console.log(item.value);
         errerMessage.innerText = "Error : All the fields are mandatory";
         errorBox.append(errerMessage);
-        return;
-      }
-      toggle = true;
-      userDetails[item.name] = item.value;
+        errerMessage.style.color = "red";
     });
 
-    if (userDetails.password != userDetails.cPassword) {
+    if ((userDetails.password != userDetails.cPassword) && (userDetails.password != " " && userDetails.cPassword !='')) {
       errerMessage.innerText = "Password and Confirm Password Should be same";
       errorBox.append(errerMessage);
       return;
@@ -46,10 +47,10 @@ if(window.location.pathname == "/index.html"){
     }
     userDetails["token"] = token;
 
-    if (toggle) {
+    if (toggle >= 4) {
       localStorage.setItem("userDetails", JSON.stringify(userDetails));
       errerMessage.innerText = "Successfully Signed Up!";
-      errerMessage.style.color = 'green'
+      errerMessage.style.color = 'green';
       errorBox.append(errerMessage);
 
       // redirecting to another page
