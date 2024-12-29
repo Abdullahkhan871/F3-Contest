@@ -1,21 +1,15 @@
-
-
 let checkToken = JSON.parse(localStorage.getItem("userDetails"));
 
-// if(checkToken && checkToken.token){ 
-//  check why this is not working its redirecting again again
 
-//   window.location.href = "/profile.html";
-// }
+  // Sign up 
 
 
 if(window.location.pathname == "/index.html"){
 
 
-  if(checkToken && checkToken.token){
-  //  check why this is not working its redirecting again again
-  window.location.href = "/profile.html";
-  }
+    if (checkToken && checkToken.token) {
+      window.location.href = "/profile.html";
+    }
 
 
   let signUp = document.querySelector("#signup-form");
@@ -55,11 +49,14 @@ if(window.location.pathname == "/index.html"){
     if (toggle) {
       localStorage.setItem("userDetails", JSON.stringify(userDetails));
       errerMessage.innerText = "Successfully Signed Up!";
+      errerMessage.style.color = 'green'
       errorBox.append(errerMessage);
 
       // redirecting to another page
 
-      window.location.href = "/profile.html";
+      setTimeout(() => {
+        window.location.href = "/profile.html";
+      }, 5000);
     }
   }
 
