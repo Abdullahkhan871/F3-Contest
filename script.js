@@ -11,6 +11,13 @@ let checkToken = JSON.parse(localStorage.getItem("userDetails"));
 
 if(window.location.pathname == "/index.html"){
 
+
+  if(checkToken && checkToken.token){
+  //  check why this is not working its redirecting again again
+  window.location.href = "/profile.html";
+  }
+
+
   let signUp = document.querySelector("#signup-form");
   let input = document.querySelectorAll("input");
   let errerMessage = document.createElement("p");
