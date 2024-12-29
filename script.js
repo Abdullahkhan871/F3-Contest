@@ -1,9 +1,7 @@
 let checkToken = JSON.parse(localStorage.getItem("userDetails"));
 
 
-  // Sign up 
-
-
+  // Sign up
 if(window.location.pathname == "/index.html"){
 
 
