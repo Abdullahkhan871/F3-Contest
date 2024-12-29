@@ -32,7 +32,7 @@ nav ul{
 }
 
 .container{
-    margin: 6.25rem auto;
+    margin: 20px auto;
     width: 80%;
 }
 h1{
@@ -61,4 +61,7 @@ input:focus{
 
 button{
     padding: 10px 50px;
+}
+h2{
+    margin-bottom: 20px;
 }
